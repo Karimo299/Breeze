@@ -30,8 +30,8 @@
 
 ## About This Project
 
-<div style="display: flex">
-<img src="./assets/screenshot.png" height="500">
+<div>
+<div>
 <div style="padding:1rem">
 <p style="flex: 1"> 
  Breeze is responsive cross platform application that uses Open Weather Map API to fetch weather data of your current location.
@@ -39,6 +39,10 @@
 <br>
 I created this project to expand my knowledge with react native as well as gain experience with cross platform mobile applications. I also improved my understanding on working with APIs.
 </p>
+</div>
+<div align="center">
+<h3>Screenshot</h3>
+<img src="./assets/screenshot.png" height="500">
 </div>
 
 </div>
