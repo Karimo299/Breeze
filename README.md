@@ -60,9 +60,12 @@ cd breeze
 ``` console
 npm install 
 ```
-4. To start the project, simply run
+4. Before running the project, youll need to grab an API key from [Open Weather Map](https://openweathermap.org/) by creating an account, then navigating to "[API Keys](https://home.openweathermap.org/api_keys)". There You will be able to generate a key which you can paste in the `api.json` file, instead of "Insert API Key".
+
+
+5. To start the project, simply run
 ``` console
 npm start
 ```
 
-5. Scan the QR code generated with your mobile device to use Breeze and Enjoy : )
+6. Scan the QR code generated with your mobile device to use Breeze and Enjoy : )
