@@ -31,7 +31,6 @@ export function getStringMonth(date) {
   return months[date.getMonth()];
 }
 
-
 export function captilize(str) {
   let output = "";
   const strArr = str.split(" ");

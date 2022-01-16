@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
-import {getStringMonth, getStringDay} from "./utils"
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { getStringMonth, getStringDay } from "./utils";
 
-export default function TopView({city,  tempData}) {
+const { fontScale } = Dimensions.get("window");
+
+export default function TopView({ city, tempData }) {
   const date = new Date();
 
   return (
@@ -9,9 +11,9 @@ export default function TopView({city,  tempData}) {
       <View>
         <Text style={styles.location}>{city}</Text>
       </View>
-      
+
       <View style={styles.topView}>
-        <View style={styles.actualDate}>
+        <View style={styles.dateView}>
           <Text style={styles.text}>{`${getStringDay(date)}`}</Text>
           <Text style={styles.text}>{`${getStringMonth(date)} ${date.getDate()}, ${date.getFullYear()}`}</Text>
         </View>
@@ -39,22 +41,22 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   location: {
-    fontSize: 20,
+    fontSize: 20 / fontScale,
     color: "#f1faee",
     alignSelf: "center",
     fontWeight: "700",
   },
   text: {
-    fontSize: 20,
+    fontSize: 20 / fontScale,
     color: "#f1faee",
     fontWeight: "500",
   },
   secondaryText: {
-    fontSize: 15,
+    fontSize: 15 / fontScale,
     color: "#f1faee",
     fontWeight: "500",
   },
-  actualDate: {
+  dateView: {
     marginTop: 20,
   },
 });

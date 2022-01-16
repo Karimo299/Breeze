@@ -8,8 +8,16 @@ import {
   SafeAreaView,
   Alert,
   Linking,
+  View,
+  ScrollView,
+  Dimensions,
 } from "react-native";
 
+const { height } = Dimensions.get("window");
+import { key } from "./api.json";
+
+console.log(key)
+// b29c9cd3ca837ab20ad5d8f2a58fb712;
 import TemperatureView from "./components/TemperatureView";
 import FutureForcasts from "./components/FutureForcasts";
 import TopView from "./components/TopView";
@@ -19,7 +27,7 @@ export default function App() {
   const [city, setCity] = useState(null);
 
   async function getWeatherData(lat, long) {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lon=${long}&lat=${lat}&units=metric&exclude=minutely,hourly,alerts&appid=b29c9cd3ca837ab20ad5d8f2a58fb712`;
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lon=${long}&lat=${lat}&units=metric&exclude=minutely,hourly,alerts&appid=${key}`;
     const response = await fetch(url);
     const json = await response.json();
     setTempData(json);
@@ -53,22 +61,31 @@ export default function App() {
   useEffect(gatherInformation, []);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="light" />
-      {tempData === null && (
-        <ActivityIndicator size="large" style={styles.loading} />
-      )}
-      {tempData !== null && (
-        <LinearGradient
-          colors={["#000080", "#0000ff"]}
-          end={{ x: 0.5, y: 0.4 }}
-        >
-          <TopView city={city} tempData={tempData} />
-          <TemperatureView data={tempData} />
-          <FutureForcasts weekData={tempData.daily} />
-        </LinearGradient>
-      )}
-    </SafeAreaView>
+    <LinearGradient
+      style={styles.container}
+      colors={["#000080", "#0000ff"]}
+      end={{ x: 0.5, y: 0.4 }}
+    >
+      <SafeAreaView>
+        <StatusBar style="light" barStyle={"dark-content"} translucent={true} />
+        {tempData === null && (
+          <View style={styles.loadingView}>
+            <ActivityIndicator
+              style={{ top: "50%" }}
+              size="large"
+              color={"#f1faee"}
+            />
+          </View>
+        )}
+        {tempData !== null && (
+          <ScrollView>
+            <TopView city={city} tempData={tempData} />
+            <TemperatureView data={tempData} />
+            <FutureForcasts weekData={tempData.daily} />
+          </ScrollView>
+        )}
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -77,11 +94,9 @@ const styles = StyleSheet.create({
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#000080",
   },
 
-  loading: {
-    top: "45%",
-    alignSelf: "center",
+  loadingView: {
+    height: height,
   },
 });
