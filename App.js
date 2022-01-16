@@ -16,8 +16,6 @@ import {
 const { height } = Dimensions.get("window");
 import { key } from "./api.json";
 
-console.log(key)
-// b29c9cd3ca837ab20ad5d8f2a58fb712;
 import TemperatureView from "./components/TemperatureView";
 import FutureForcasts from "./components/FutureForcasts";
 import TopView from "./components/TopView";
