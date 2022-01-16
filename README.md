@@ -1,7 +1,7 @@
 # Breeze
 
 <div style="display: flex; gap: 2rem">
-  <a href="https://github.com/karimo299/breeze" >
+  <a href="https://github.com/karimo299/Breeze" >
     <img src="./assets/icon.png" width="100" height="100" style="border-radius:20px"  alt="icon" >
   </a>
     <p style="flex: 3">Breeze is a cross platform weather app that provides detailed weather information in a clear and concise format. The app offers current weather, and forecasts for the next week using your current location. Breeze is designed to be intuitive and simple to use and is available for Android and iOS devices.
@@ -50,11 +50,11 @@ I created this project to expand my knowledge with react native as well as gain 
 ### Usage
 1. Clone the repo 
 ```console
-git clone https://github.com/karimo299/breeze.git
+git clone https://github.com/karimo299/Breeze.git
 ```
-2. Navigate to the breeze directory
+2. Navigate to the Breeze directory
 ```console
-cd breeze
+cd Breeze
  ```
 3. install all the dependacies by running
 ``` console
